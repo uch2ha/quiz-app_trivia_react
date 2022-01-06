@@ -6,8 +6,8 @@ const Card = ({ children, styles, onClick }) => {
     const customStyle = {
         ...styles,
         minWidth: "30%",
-        margin: 10,
-        fontSize: 10
+        margin: 0,
+        fontSize: 10.2,
         
     }
 

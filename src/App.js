@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import HomePage from "./components/HomePage"
+import Questions from "./components/Questions"
 import Favorites from "./components/Favorites"
 import Navbar from "./components/Navbar";
 
@@ -12,7 +12,7 @@ function App() {
         <div className="content">
           <Switch>
             <Route exact path="/">
-              <HomePage />
+              <Questions />
             </Route>
             <Route exact path="/favorites">
               <Favorites />

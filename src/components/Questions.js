@@ -9,7 +9,7 @@ import Favorites from './Favorites';
 
 const isFavorites = JSON.parse(sessionStorage.getItem("favorites"))
 
-const HomePage = () => {
+const Questions = () => {
   const [data, setData] = useState([])
   const [tools, setTools] = useState({category: "9", difficult: "easy", type: "multiple"})
   const [favorites, setFavorites] = useState([])
@@ -141,11 +141,11 @@ const HomePage = () => {
             </div>
         </div>
         <Button onClick={() => addToFavorites() }>
-          <FavoriteIcon style={{fontSize: "4rem", padding: "1.2rem",
+          <FavoriteIcon style={{fontSize: "4rem", padding: "1.2rem", 
             border: "3px solid #7428d1", borderRadius: "5px"}}/>
         </Button>
         <Button onClick={() => handleClick()}>
-          <ReplayIcon style={{fontSize: "4rem", padding: "1.2rem",
+          <ReplayIcon style={{fontSize: "4rem", padding: "1.2rem", 
             border: "3px solid #7428d1", borderRadius: "5px"}}/>
         </Button>
         
@@ -154,4 +154,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage;
+export default Questions;

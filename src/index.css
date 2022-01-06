@@ -3,13 +3,13 @@
 /* base styles */
 body {
   font-family: Raleway, sans-serif;
-  margin: 0;
   font-size: 1.5em;
   text-align: center;
   background-color: #7f53ac;
   background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
   color: whitesmoke;
   min-height: 100vh;
+  margin: 0;
 }
 
 
@@ -33,9 +33,9 @@ body {
 
 /* main */
 .content {
-  max-width: 95%;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 90%;
+  margin: 1.1rem auto;
+  margin-bottom: 2rem;
 }
 
 /* tools */
@@ -45,9 +45,10 @@ body {
   justify-content: center;
 }
 
-.quiz{
-
+.tools select{
+  width: 100%;
 }
+
 
 .correct-answer{
   padding: 1rem;
@@ -68,6 +69,29 @@ body {
   font-size: 2rem;
   padding-bottom: 2.5rem;
 }
+
+.card-answers{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-correct-answer {
+  border: 1px solid black;
+  padding: 0.2rem;
+  margin-right: 0.2rem;
+  letter-spacing: 0.5px;
+}
+
+.card-incorrect-answers{
+  letter-spacing: 0.5px;
+}
+
+.MuiCardContent-root:last-child{
+  padding: 5px 0 0 0;
+}
+
+
 
 
 
