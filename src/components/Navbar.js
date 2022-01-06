@@ -7,21 +7,22 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="links">
         <Link to="/" style={{
-          color: '#f1356d',
-          backgroundColor: 'white',
+          color: 'white',
+          backgroundColor: 'transparent',
           borderRadius: '8px',
-          fontSize: "20px",
-          border: "2px solid #f1356d",
+          fontSize: "25px",
+          border: "3px solid #7428d1",
           padding: "10px"
         }}>Questions</Link>
 
         <Link to="/favorites" style={{
-          color: '#f1356d',
-          backgroundColor: 'white',
+          color: 'white',
+          backgroundColor: 'transparent',
           borderRadius: '8px',
-          fontSize: "20px",
-          border: "2px solid #f1356d",
-          padding: "10px"
+          fontSize: "25px",
+          border: "3px solid #7428d1",
+          padding: "10px",
+          marginLeft: "1.5rem"
         }}>Favorites</Link>
 
       </div>

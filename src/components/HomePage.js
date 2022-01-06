@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import ReplayIcon from '@material-ui/icons/Replay';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import Favorites from './Favorites';
 
@@ -60,13 +62,15 @@ const HomePage = () => {
   
 
   return(
-    <div>
+    <div className='main'>
       <div className="tools">
         {/* category */}
         <select
           name="category"
           value={tools.category}
-          style={{ padding: 5, marginRight: 20, marginBottom: 25 }}
+          style={{ fontSize: "1.5rem", padding: 10, marginBottom: 10,
+            background: "transparent", color: "black", borderColor: "white", letterSpacing: "1px",
+            borderRadius: "5px", cursor: "pointer" }}
           onChange={event => handleInputChange(event)}
         >
           <option value="9">General Knowledge</option>
@@ -99,7 +103,9 @@ const HomePage = () => {
         <select
           name="difficult"
           value={tools.difficult}
-          style={{ padding: 5, marginRight: 20, marginBottom: 25 }}
+          style={{ fontSize: "1.5rem", padding: 10, marginBottom: 10,
+            background: "transparent", color: "black", borderColor: "white", letterSpacing: "1px",
+            borderRadius: "5px", cursor: "pointer" }}
           onChange={event => handleInputChange(event)}
         >
             <option value="easy">Easy</option>
@@ -111,7 +117,9 @@ const HomePage = () => {
         <select
           name="type"
           value={tools.type}
-          style={{ padding: 5, marginRight: 20, marginBottom: 25 }}
+          style={{ fontSize: "1.5rem", padding: 10, marginBottom: 5,
+            background: "transparent", color: "black", borderColor: "white", letterSpacing: "1px",
+            borderRadius: "5px", cursor: "pointer" }}
           onChange={event => handleInputChange(event)}
         >
             <option value="multiple">Multiple Choice</option>
@@ -122,21 +130,24 @@ const HomePage = () => {
       {data.category ? <>
         <div className="quiz">
           <h2 dangerouslySetInnerHTML={{__html: data.question}} />
-            <div>
+            <div className='correct-answer'>
               <h3>Correct Answer:</h3>
-                <li>
-                    <label dangerouslySetInnerHTML={{__html: data.correct_answer}} />
-                </li>
+                <label dangerouslySetInnerHTML={{__html: data.correct_answer}} />
             </div>
-
+            <div className='incorrect_answers'>
             {data.incorrect_answers.map((incorrect_answer)=>(
-              <li key={uuidv4()}>
-                <label dangerouslySetInnerHTML={{__html: incorrect_answer}} />
-              </li>
+              <label style={{padding: "0.3rem"}}key={uuidv4()} dangerouslySetInnerHTML={{__html: incorrect_answer}} />
             ))}
-            <Button onClick={() => addToFavorites() }>like</Button>
+            </div>
         </div>
-        <Button onClick={() => handleClick()}>Reload</Button>
+        <Button onClick={() => addToFavorites() }>
+          <FavoriteIcon style={{fontSize: "4rem", padding: "1.2rem",
+            border: "3px solid #7428d1", borderRadius: "5px"}}/>
+        </Button>
+        <Button onClick={() => handleClick()}>
+          <ReplayIcon style={{fontSize: "4rem", padding: "1.2rem",
+            border: "3px solid #7428d1", borderRadius: "5px"}}/>
+        </Button>
         
       </> : <div>Loading...</div>}
     </div>
