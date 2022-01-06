@@ -5,11 +5,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Favorites from './Favorites';
 
+const isFavorites = JSON.parse(sessionStorage.getItem("favorites"))
 
 const HomePage = () => {
   const [data, setData] = useState([])
   const [tools, setTools] = useState({category: "9", difficult: "easy", type: "multiple"})
-  const [favorites, setFavorites] = useState(JSON.parse(sessionStorage.getItem("favorites")))
+  const [favorites, setFavorites] = useState([])
+
+  
 
   
   
@@ -23,6 +26,9 @@ const HomePage = () => {
           .then(res => res.json())
           .then(data => {
             setData(data.results[0])
+            if(isFavorites.length > 0){
+              setFavorites(JSON.parse(sessionStorage.getItem("favorites")))
+            }
 
           })
   }
