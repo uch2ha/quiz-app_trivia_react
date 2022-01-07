@@ -24,44 +24,44 @@ const Favorites = () => {
   }
 
   
-  console.log(datas)
 
   return(
     // style={{display: "flex", flexWrap: "wrap"}}
-    <div >
-      {/* button to trigger printing of target component */}
-      <ReactToPrint
-          trigger={() => <Button>
-            <PrintIcon style={{fontSize: "2rem", padding: "1.2rem", 
-            border: "2.5px solid #7428d1", borderRadius: "5px"}}/>
-          </Button>}
-          content={() => componentRef}
-      />
-      <Button onClick={()=>clearFavorites()}>
-            <DeleteForeverIcon style={{fontSize: "2rem", padding: "1.2rem", 
-            border: "2.5px solid #7428d1", borderRadius: "5px"}}/>
-      </Button>
-
-      <div style={{paddingTop: "1rem"}} ref={(el) => (componentRef = el)}>
-      {datas ? (
-        <>
-          {datas.map((data)=>(
-            <Card key={uuidv4()}>
-              <h2 dangerouslySetInnerHTML={{__html: data.question}} />
-              <div className="card-answers">
-                <div className="card-correct-answer">
-                  <label dangerouslySetInnerHTML={{__html: data.correct_answer}} />
+    <div>
+      <div style={{paddingBottom: "1rem"}}>
+        {/* button to trigger printing of target component */}
+        <ReactToPrint
+            trigger={() => <Button>
+              <PrintIcon style={{fontSize: "2rem", padding: "1.2rem", 
+              border: "2.5px solid #7428d1", borderRadius: "5px"}}/>
+            </Button>}
+            content={() => componentRef}
+        />
+        <Button onClick={()=>clearFavorites()}>
+              <DeleteForeverIcon style={{fontSize: "2rem", padding: "1.2rem", 
+              border: "2.5px solid #7428d1", borderRadius: "5px"}}/>
+        </Button>
+      </div>
+      <div ref={(el) => (componentRef = el)}>
+        {datas ? (
+          <>
+            {datas.map((data)=>(
+              <Card key={uuidv4()}>
+                <h2 dangerouslySetInnerHTML={{__html: data.question}} />
+                <div className="card-answers">
+                  <div className="card-correct-answer">
+                    <label dangerouslySetInnerHTML={{__html: data.correct_answer}} />
+                  </div>
+                  <div className="card-incorrect-answers">
+                  {data.incorrect_answers.map((incorrect_answer)=>(
+                    <label key={uuidv4()} dangerouslySetInnerHTML={{__html: incorrect_answer}} />
+                  ))}
+                  </div>
                 </div>
-                <div className="card-incorrect-answers">
-                {data.incorrect_answers.map((incorrect_answer)=>(
-                  <label key={uuidv4()} dangerouslySetInnerHTML={{__html: incorrect_answer}} />
-                ))}
-                </div>
-              </div>
-            </Card>
-          ))}
-        </>
-      ) : (<div>No data</div>)}
+              </Card>
+            ))}
+          </>
+        ) : (<div>No data</div>)}
       </div>
     </div>
   )

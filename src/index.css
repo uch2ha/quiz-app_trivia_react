@@ -49,6 +49,11 @@ body {
   width: 100%;
 }
 
+.quiz{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
 
 .correct-answer{
   padding: 1rem;

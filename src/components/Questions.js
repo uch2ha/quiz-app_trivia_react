@@ -63,8 +63,6 @@ const Questions = () => {
     sessionStorage.setItem("favorites", JSON.stringify(favorites))
   }
 
-  // console.log(isFavorites)
-  console.log(favorites)
   
 
   return(
@@ -136,15 +134,15 @@ const Questions = () => {
       {data.category ? <>
         <div className="quiz">
           <h2 dangerouslySetInnerHTML={{__html: data.question}} />
-            <div className='correct-answer'>
-              <h3>Correct Answer:</h3>
-              <label dangerouslySetInnerHTML={{__html: data.correct_answer}} />
-            </div>
-            <div className='incorrect_answers'>
-            {data.incorrect_answers.map((incorrect_answer)=>(
-              <label style={{padding: "0.3rem"}} key={uuidv4()} dangerouslySetInnerHTML={{__html: incorrect_answer}} />
-            ))}
-            </div>
+          <div className='correct-answer'>
+            <h3>Correct Answer:</h3>
+            <label dangerouslySetInnerHTML={{__html: data.correct_answer}} />
+          </div>
+          <div className='incorrect_answers'>
+          {data.incorrect_answers.map((incorrect_answer)=>(
+            <label style={{padding: "0.3rem"}} key={uuidv4()} dangerouslySetInnerHTML={{__html: incorrect_answer}} />
+          ))}
+          </div>
         </div>
         <Button onClick={() => addToFavorites() }>
           <FavoriteIcon style={{fontSize: "4rem", padding: "1.2rem", 
