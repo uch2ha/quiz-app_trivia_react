@@ -7,7 +7,10 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import Favorites from './Favorites';
 
-const isFavorites = JSON.parse(sessionStorage.getItem("favorites"))
+// TODO
+// delete from favorites
+// randomly generated answers order
+
 
 const Questions = () => {
   const [data, setData] = useState([])
@@ -16,22 +19,23 @@ const Questions = () => {
 
   
 
-  
-  
+  useEffect(() => {
+    getQuestions("https://opentdb.com/api.php?amount=1&category="
+    +tools.category+"&difficulty="+tools.difficult+"&type="+tools.type);
+  }, []);
 
-  useEffect(() => getQuestions("https://opentdb.com/api.php?amount=1&category="
-      +tools.category+"&difficulty="+tools.difficult+"&type="+tools.type),     
-      []);
 
   const getQuestions = (API_URL) => {
       fetch(API_URL)
           .then(res => res.json())
           .then(data => {
             setData(data.results[0])
-            if(isFavorites.length > 0){
-              setFavorites(JSON.parse(sessionStorage.getItem("favorites")))
+            if(JSON.parse(sessionStorage.getItem("favorites"))){
+              if((JSON.parse(sessionStorage.getItem("favorites"))).length > 0){
+                setFavorites(JSON.parse(sessionStorage.getItem("favorites")))
+              }
             }
-
+            
           })
   }
 
@@ -40,11 +44,15 @@ const Questions = () => {
   }
 
   const addToFavorites = () => {
-    setFavorites([...favorites, {question: data.question,
+    let oldFavorites = favorites
+    let newFavorites = {question: data.question,
       correct_answer: data.correct_answer,
-      incorrect_answers: [data.incorrect_answers]}])
+      incorrect_answers: [data.incorrect_answers]}
     
-    sessionStorage.setItem("favorites", JSON.stringify(favorites))
+    oldFavorites.push(newFavorites)
+    setFavorites(oldFavorites)
+    
+    sessionStorage.setItem("favorites", JSON.stringify(oldFavorites))
  
   }
 
@@ -55,10 +63,8 @@ const Questions = () => {
     sessionStorage.setItem("favorites", JSON.stringify(favorites))
   }
 
-  console.log(tools)
-  console.log(data)
+  // console.log(isFavorites)
   console.log(favorites)
-  // console.log(sessionStorage.getItem("favorites"))
   
 
   return(
@@ -132,11 +138,11 @@ const Questions = () => {
           <h2 dangerouslySetInnerHTML={{__html: data.question}} />
             <div className='correct-answer'>
               <h3>Correct Answer:</h3>
-                <label dangerouslySetInnerHTML={{__html: data.correct_answer}} />
+              <label dangerouslySetInnerHTML={{__html: data.correct_answer}} />
             </div>
             <div className='incorrect_answers'>
             {data.incorrect_answers.map((incorrect_answer)=>(
-              <label style={{padding: "0.3rem"}}key={uuidv4()} dangerouslySetInnerHTML={{__html: incorrect_answer}} />
+              <label style={{padding: "0.3rem"}} key={uuidv4()} dangerouslySetInnerHTML={{__html: incorrect_answer}} />
             ))}
             </div>
         </div>
@@ -149,7 +155,7 @@ const Questions = () => {
             border: "3px solid #7428d1", borderRadius: "5px"}}/>
         </Button>
         
-      </> : <div>Loading...</div>}
+      </> : <div style={{paddingTop: "2rem"}}>Loading...</div>}
     </div>
   )
 }

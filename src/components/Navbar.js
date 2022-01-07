@@ -10,7 +10,7 @@ const Navbar = () => {
           color: 'white',
           backgroundColor: 'transparent',
           borderRadius: '8px',
-          fontSize: "25px",
+          fontSize: "22px",
           border: "3px solid #7428d1",
           padding: "10px"
         }}>Questions</Link>
@@ -19,7 +19,7 @@ const Navbar = () => {
           color: 'white',
           backgroundColor: 'transparent',
           borderRadius: '8px',
-          fontSize: "25px",
+          fontSize: "22px",
           border: "3px solid #7428d1",
           padding: "10px",
           marginLeft: "1.5rem"

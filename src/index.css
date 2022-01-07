@@ -57,7 +57,7 @@ body {
   border-radius: 5px;
 }
 .correct-answer h3{
-  margin: 0.2rem;
+  margin: 0.2rem 0 0.5rem;
 }
 .correct-answer label{
   color: rgb(236, 84, 84);
