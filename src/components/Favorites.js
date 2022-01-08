@@ -111,17 +111,17 @@ const Favorites = () => {
         {/* button to trigger printing of target component */}
         <ReactToPrint
             trigger={() => <Button>
-              <PrintIcon style={{fontSize: "2rem", padding: "1.2rem", 
+              <PrintIcon style={{fontSize: "2rem", padding: "1rem", 
               border: "2.5px solid #7428d1", borderRadius: "5px"}}/>
             </Button>}
             content={() => componentRef}
         />
         <Button onClick={()=>deleteDuplicates()}>
-              <CachedIcon style={{fontSize: "2rem", padding: "1.2rem", 
+              <CachedIcon style={{fontSize: "2rem", padding: "1rem", 
               border: "2.5px solid #7428d1", borderRadius: "5px"}}/>
         </Button>
         <Button onClick={()=>clearFavorites()}>
-              <DeleteForeverIcon style={{fontSize: "2rem", padding: "1.2rem", 
+              <DeleteForeverIcon style={{fontSize: "2rem", padding: "1rem", 
               border: "2.5px solid #7428d1", borderRadius: "5px"}}/>
         </Button>
       </div>
