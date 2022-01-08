@@ -2,7 +2,7 @@
 
 /* base styles */
 body {
-  font-family: Raleway, sans-serif;
+  font-family: sans-serif;
   font-size: 1.5em;
   text-align: center;
   background-color: #7f53ac;
@@ -47,6 +47,10 @@ body {
 
 .tools select{
   width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 }
 
 .quiz{
@@ -94,6 +98,13 @@ body {
 
 .MuiCardContent-root:last-child{
   padding: 5px 0 0 0;
+}
+
+.fav-tools select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
 }
 
 

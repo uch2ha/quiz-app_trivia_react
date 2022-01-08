@@ -2,14 +2,11 @@ import React, { useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import ReplayIcon from '@material-ui/icons/Replay';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 import Favorites from './Favorites';
 
-// TODO
-// delete from favorites
-// randomly generated answers order
 
 
 const Questions = () => {
@@ -149,7 +146,7 @@ const Questions = () => {
             border: "3px solid #7428d1", borderRadius: "5px"}}/>
         </Button>
         <Button onClick={() => handleClick()}>
-          <ReplayIcon style={{fontSize: "4rem", padding: "1.2rem", 
+          <NavigateNextIcon style={{fontSize: "4rem", padding: "1.2rem", 
             border: "3px solid #7428d1", borderRadius: "5px"}}/>
         </Button>
         
